@@ -1,0 +1,7 @@
+Proteus guide:
+ATTINY13: micro controller
+AVX0402X7R22N: 22nF capacitor
+AVX0402Y5V100N: 100nF capacitor
+DF005M: diode bridge
+MCP1612: buck regulator
+7805:power supply regulator

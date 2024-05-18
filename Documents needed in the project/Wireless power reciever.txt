@@ -1,0 +1,79 @@
+Wireless power reciever components:
+- general purpose at microController
+- pulp connected to a coil
+- A coil for transmitting power (transmitter coil)
+- A coil for receiving power (receiver coil)
+- A power management IC
+- A MOSFET for switching.
+
+
+*We need to make sure that the Tx knows that the object above it is another coil (Rx) not a metal to avoid heating-up (due to eddy current) and corrupted*
+
+
+Then:
+Design the Transmitter Circuit:
+The transmitter circuit consists of the transmitter coil, a driver circuit (to drive the coil), and a power supply. The driver circuit is usually controlled by a microcontroller, which modulates the power to the coil based on communication with the receiver.
+
+Then:
+Design the Receiver Circuit: 
+The receiver circuit consists of the receiver coil, a rectifier (to convert AC to DC), a voltage regulator (to regulate the voltage), and a controller to manage charging.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Creating a Qi power receiver from scratch to light up a bulb using an ATmega32 microcontroller involves several steps. Below is a high-level overview of how you can achieve this:
+
+Design the Receiver Circuit:
+
+Start by designing the receiver circuit, which will include the receiver coil, rectifier, voltage regulator, and ATmega32 microcontroller.
+The receiver coil will pick up the electromagnetic energy transmitted by the Qi transmitter.
+The rectifier circuit will convert the alternating current induced in the coil to direct current.
+The voltage regulator will stabilize the output voltage to power the microcontroller and other components.
+Microcontroller Interface:
+
+Connect the output of the voltage regulator to the power input of the ATmega32 microcontroller.
+Implement communication interfaces such as SPI or I2C to communicate with external components or sensors if needed.
+Control Logic:
+
+Develop the control logic in the microcontroller to monitor the charging status and control the power output to the bulb.
+Implement algorithms to detect the presence of the Qi transmitter, negotiate power transfer parameters, and manage charging.
+Power Output to Bulb:
+
+Connect the output pins of the microcontroller to a power switching circuit that can control the power supplied to the bulb.
+Depending on the power requirements of the bulb, you may need to use a relay, MOSFET, or other suitable power switching device.
+Testing and Debugging:
+
+Test each component of the receiver circuit individually to ensure they function as expected.
+Debug the microcontroller code to ensure it correctly interprets Qi communication and controls the power output to the bulb.
+Integrate Qi Communication Protocol:
+
+Implement the Qi communication protocol to enable communication with the Qi transmitter.
+This involves establishing a connection, negotiating power transfer parameters, and monitoring charging status.
+Lighting Up the Bulb:
+
+Once the receiver circuit is working correctly and can communicate with the Qi transmitter, test the system by placing the receiver within range of the transmitter.
+Verify that the bulb lights up when the charging process is initiated.
+Optimization and Refinement:
+
+Optimize the design for efficiency, reliability, and performance.
+Refine the control logic to ensure smooth operation under various conditions.
+Safety Considerations:
+
+Ensure that the system includes safety features such as overvoltage protection, overcurrent protection, and temperature monitoring to prevent damage to the components and ensure safe operation.
+Final Integration and Packaging:
+
+Integrate the Qi receiver circuit into a suitable enclosure or product design.
+Package the system appropriately for deployment, considering factors such as heat dissipation, durability, and user accessibility.
+By following these steps, you can create a Qi power receiver using an ATmega32 microcontroller to light up a bulb wirelessly. Make sure to refer to datasheets, application notes, and Qi specifications for detailed technical information and guidelines throughout the design process.
+
+
+
+
+
+NOTE:
+both Tx and Rx are based on series LC (Coil & Capacitor) residence
+
+
+Another requirement is to increase or decrease the transmitter power on demand by the receiver. This can also be achieved by continuous feedback from the receiver to the transmitter.
+
+
